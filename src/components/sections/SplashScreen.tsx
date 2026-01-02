@@ -87,26 +87,49 @@ export default function SplashScreen({ onStart }: { onStart: () => void }) {
         </div>
       </div>
 
-      {/* Modal Tentang */}
-      {showInfo && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 backdrop-blur-md bg-slate-900/40">
-          <div className="bg-white rounded-[1.5rem] max-w-md w-full p-6 shadow-2xl relative mx-4 animate-fade-in">
-            <button onClick={() => setShowInfo(false)} className="absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-full transition">
-              <X size={20} className="text-slate-400" />
-            </button>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="bg-indigo-100 p-2 rounded-xl">
-                <Brush className="text-indigo-600" size={20} />
-              </div>
-              <h3 className="text-xl font-bold text-slate-800">Tentang Aplikasi</h3>
-            </div>
-            <p className="text-slate-600 text-sm leading-relaxed mb-4">
-              <strong>ArtClass v1.0</strong> adalah platform edukasi seni yang menggabungkan teori tradisional dengan teknologi interaktif.
-            </p>
-            <button onClick={() => setShowInfo(false)} className="w-full bg-slate-800 text-white py-3.5 rounded-xl font-bold">Mengerti</button>
-          </div>
+    {/* --- Modal Tentang (Pengganti Alert) --- */}
+{showInfo && (
+  <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 backdrop-blur-md bg-slate-900/40 animate-fade-in">
+    <div className="bg-white rounded-[1.5rem] md:rounded-[2rem] max-w-md w-full p-6 md:p-8 shadow-2xl relative mx-4">
+      <button
+        onClick={() => setShowInfo(false)}
+        className="absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-full transition"
+      >
+        <X size={20} className="text-slate-400" />
+      </button>
+
+      <div className="flex items-center gap-3 md:gap-4 mb-6">
+        <div className="bg-indigo-100 p-2 md:p-3 rounded-xl md:rounded-2xl">
+          {/* DI SINI PERBAIKANNYA: Ganti text-art-primary menjadi text-indigo-600 */}
+          <Brush className="text-indigo-600" size={24} />
         </div>
-      )}
+        <h3 className="text-xl md:text-2xl font-bold text-slate-800">
+          Tentang Aplikasi
+        </h3>
+      </div>
+
+      <div className="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
+        <p>
+          <strong>ArtClass v1.0</strong> adalah platform edukasi seni yang
+          menggabungkan teori tradisional dengan teknologi interaktif.
+        </p>
+        <ul className="space-y-2">
+          {/* Gunakan text-green-500 agar checklist tetap terlihat cerah */}
+          <li className="flex gap-2"><span className="text-green-500">✅</span> Kurikulum Standar Seni Rupa</li>
+          <li className="flex gap-2"><span className="text-green-500">✅</span> Studio Lukis Digital Real-time</li>
+          <li className="flex gap-2"><span className="text-green-500">✅</span> Evaluasi latihan berbentuk kuis</li>
+        </ul>
+      </div>
+
+      <button
+        onClick={() => setShowInfo(false)}
+        className="w-full mt-8 bg-slate-800 text-white py-3.5 rounded-xl font-bold hover:bg-slate-900 transition active:scale-95 shadow-lg"
+      >
+        Mengerti
+      </button>
+    </div>
+  </div>
+)}
     </section>
   );
 }
