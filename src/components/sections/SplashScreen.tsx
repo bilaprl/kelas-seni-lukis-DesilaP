@@ -36,7 +36,7 @@ export default function SplashScreen({ onStart }: { onStart: () => void }) {
   Dasar{" "}
   <span className="relative inline-block">
     {/* Tambahkan z-10 agar teks di atas SVG coretan */}
-    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-art-primary to-art-secondary">
+    <span className="relative z-10 bg-clip-text bg-gradient-to-r from-art-primary to-art-secondary">
       Seni Lukis
     </span>
     {/* Pastikan SVG tidak memiliki z-index yang lebih tinggi dari teks */}
