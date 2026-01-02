@@ -12,7 +12,7 @@ export default function SplashScreen({ onStart }: { onStart: () => void }) {
       <div className="absolute bottom-5 -right-10 w-56 h-56 md:w-80 md:h-80 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" />
       
       {/* --- Konten Utama --- */}
-      <div className="relative z-10 flex flex-col items-center animate-fade-in text-center">
+      <div className="relative z-10 flex flex-col items-center animate-fade-in text-center w-full">
         
         {/* Container Icon Brush */}
         <div className="relative bg-white p-5 md:p-6 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl shadow-indigo-100 mb-6 md:mb-8 transition-all duration-500 hover:rotate-12 group cursor-pointer border border-slate-50">
@@ -20,28 +20,32 @@ export default function SplashScreen({ onStart }: { onStart: () => void }) {
           <Sparkles className="absolute -top-2 -right-10 md:-right-20 text-yellow-400 animate-bounce" size={20} />
         </div>
 
-        {/* Heading - SOLUSI ANTI-HILANG DI MOBILE */}
+        {/* Heading - SOLUSI FINAL ANTI-GAIB */}
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-4 md:mb-6 text-slate-800 tracking-tight leading-tight">
           Dasar{" "}
           <span className="relative inline-block">
-            {/* Teks Cadangan (Warna Hitam Solid) agar tidak hilang */}
-            <span className="relative text-slate-800">
-              Seni Lukis
-              {/* Teks Gradien yang menumpuk di atasnya */}
-              <span 
-                className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent pointer-events-none"
-                style={{ 
-                  WebkitBackgroundClip: 'text', 
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                Seni Lukis
+            {/* KUNCI: Kita tidak pakai text-transparent sebagai class utama. 
+                Kita pakai text-indigo-600 sebagai warna default (fallback).
+                Gradien hanya dipasang lewat style inline yang memaksa clipping.
+            */}
+            <span 
+              className="relative z-10 text-indigo-600 inline-block bg-gradient-to-r from-indigo-600 to-pink-500"
+              style={{ 
+                WebkitBackgroundClip: 'text', 
+                WebkitTextFillColor: 'inherit', // Defaultnya Indigo
+                backgroundClip: 'text',
+                // Inline style ini akan mencoba menimpa warna jika didukung
+                backgroundImage: 'linear-gradient(to right, #4f46e5, #ec4899)'
+              }}
+            >
+              <span className="[supports(-webkit-background-clip:text)]:text-transparent">
+                 Seni Lukis
               </span>
             </span>
             
-            {/* SVG Coretan Pink */}
+            {/* SVG Coretan Pink - Diberi margin agar tidak menabrak teks */}
             <svg
-              className="absolute -bottom-1 md:bottom-0 left-0 w-full pointer-events-none z-0"
+              className="absolute -bottom-2 left-0 w-full pointer-events-none z-0"
               viewBox="0 0 338 12"
               fill="none"
               preserveAspectRatio="none"
@@ -56,7 +60,7 @@ export default function SplashScreen({ onStart }: { onStart: () => void }) {
           </span>
         </h1>
 
-        <p className="text-slate-500 mb-8 md:mb-12 max-w-sm md:max-w-lg text-base md:text-xl font-medium leading-relaxed px-2">
+        <p className="text-slate-500 mb-8 md:mb-12 max-w-sm md:max-w-lg text-base md:text-xl font-medium leading-relaxed px-4">
           Bebaskan kreativitasmu. Pelajari teknik profesional melalui modul
           interaktif yang dirancang khusus untuk pemula.
         </p>
