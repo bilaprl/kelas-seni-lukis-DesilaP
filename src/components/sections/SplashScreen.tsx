@@ -21,10 +21,10 @@ export default function SplashScreen({ onStart }: { onStart: () => void }) {
       {/* --- Konten Utama --- */}
       <div className="relative z-10 flex flex-col items-center animate-fade-in text-center">
         {/* Container Icon - Responsif size */}
-        <div className="relative bg-white p-5 md:p-6 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl shadow-indigo-100 mb-6 md:mb-8 transform transition-all duration-500 hover:rotate-12 group">
-  {/* Gunakan class 'group-hover' untuk mentrigger animasi elemen dalam */}
-  <Brush className="text-indigo-600 w-12 h-12 md:w-16 md:h-16 transition-transform duration-500 group-hover:scale-110" />
-  
+    <div className="relative bg-white p-5 md:p-6 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl shadow-indigo-100 mb-6 md:mb-8 transition-all duration-500 hover:rotate-12 group cursor-pointer border border-slate-50">
+  <Brush 
+    className="text-indigo-600 w-12 h-12 md:w-16 md:h-16 transition-transform duration-500 group-hover:scale-110" 
+  />
   <Sparkles
     className="absolute -top-2 -right-10 md:-right-20 text-yellow-400 animate-bounce"
     size={20}
@@ -32,23 +32,27 @@ export default function SplashScreen({ onStart }: { onStart: () => void }) {
 </div>
 
         {/* Heading - Responsif Font Size (Kunci utama di text-4xl ke text-7xl) */}
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-4 md:mb-6 text-slate-800 tracking-tight leading-tight">
+  <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-4 md:mb-6 text-slate-800 tracking-tight leading-tight">
   Dasar{" "}
   <span className="relative inline-block">
-    {/* Tambahkan z-10 agar teks di atas SVG coretan */}
-    <span className="relative z-10 bg-clip-text bg-gradient-to-r from-art-primary to-art-secondary">
+    {/* Gunakan style inline untuk memaksa Webkit Clip agar teks muncul */}
+    <span 
+      className="relative z-10 bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent"
+      style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+    >
       Seni Lukis
     </span>
-    {/* Pastikan SVG tidak memiliki z-index yang lebih tinggi dari teks */}
+    
+    {/* SVG Coretan - Tambahkan pointer-events-none agar tidak menghalangi klik */}
     <svg
-      className="absolute -bottom-1 md:-bottom-2 left-0 w-full pointer-events-none z-0"
+      className="absolute -bottom-1 md:bottom-0 left-0 w-full pointer-events-none z-0"
       viewBox="0 0 338 12"
       fill="none"
       preserveAspectRatio="none"
     >
       <path
         d="M3 9C118.957 4.47226 254.444 -3.56608 335 9"
-        stroke="#EC4899"
+        stroke="#ec4899"
         strokeWidth="6"
         strokeLinecap="round"
       />
