@@ -5,7 +5,7 @@ import "./globals.css";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Aplikasi Seni Kelas Lukis - Desila Putri",
+  title: "Aplikasi Seni Kelas Lukis - DesilaP",
   description: "Pelajari dasar seni lukis secara interaktif.",
 };
 
