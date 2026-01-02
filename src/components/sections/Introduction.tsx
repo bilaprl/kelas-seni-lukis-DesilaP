@@ -15,6 +15,9 @@ export default function Introduction({ onNext }: { onNext: () => void }) {
       
       {/* Header Section */}
       <div className="mb-8 md:mb-12 text-center md:text-left">
+        <span className="inline-block text-pink-600 font-bold text-xs md:text-sm tracking-widest uppercase bg-pink-50 px-4 py-1.5 rounded-full">
+          Modul 01
+        </span>
         <h2 className="text-3xl md:text-5xl font-extrabold mt-4 text-slate-800 tracking-tight leading-tight">
           Memahami Dunia <span className="text-indigo-600">Seni Lukis</span>
         </h2>
